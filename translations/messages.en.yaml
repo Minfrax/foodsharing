@@ -3,13 +3,13 @@ HOME:
 APP:
     NAME:               'food4share'
 NAV:
-    HOMEPAGE:           'Homepage'
+    HOME:               'Homepage'
+    TERMS:              'ToS'
     MYOFFERS:           'myOffers'
     REGISTER:           'Register'
     LOGIN:              'Login'
     LOGOUT:             'Logout'
     LOGGED_AS:          'Logged as %name%'
-
 LOGIN:
     INFO:               'Please sign in'
     USERNAME:
