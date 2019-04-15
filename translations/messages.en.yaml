@@ -30,6 +30,19 @@ FORM:
             LABEL:      'Username'
         SUBMIT:
             LABEL:      'Submit'
+    OFFER:
+        TITLE:
+            LABEL:      'What you like to offer?'
+        DESCRIPTION:
+            LABEL:      'Offer description'
+        QUANTITY:
+            LABEL:      'Offer amount'
+        CANTON:
+            LABEL:      'Select your Canton'
+        PIC_FILE:
+            LABEL:      'Select a picture'
+        SUBMIT:
+            LABEL:      'Submit'
 MAIL:
     REGISTER:
         TITLE:          'Activate your account'
