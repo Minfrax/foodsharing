@@ -1,0 +1,47 @@
+HOME:
+    VISITEURS_COUNT:    'Total visiteurs counter: ??? BONUS ???'
+APP:
+    NAME:               'food4share'
+NAV:
+    HOMEPAGE:           'Homepage'
+    MYOFFERS:           'myOffers'
+    REGISTER:           'Register'
+    LOGIN:              'Login'
+    LOGOUT:             'Logout'
+    LOGGED_AS:          'Logged as %name%'
+
+LOGIN:
+    INFO:               'Please sign in'
+    USERNAME:
+        LABEL:          'Username'
+    PASSWORD:
+        LABEL:          'Password'
+    SUBMIT:             'Sign in'
+FORM:
+    USER:
+        TOS:
+            LABEL:      'Accept term of services'
+        EMAIL:
+            LABEL:      'Email'
+        PASSWORD:
+            LABEL2:     'Repeat your password'
+            LABEL:      'Password'
+        USERNAME:
+            LABEL:      'Username'
+        SUBMIT:
+            LABEL:      'Submit'
+MAIL:
+    REGISTER:
+        TITLE:          'Activate your account'
+        INFO:           'Hi %name%, your account was successfully created on food4share, just one more step to activate !!'
+        HTML:
+            LINK:
+                INFO:   'Please click'
+                LABEL:  'on this link'
+        TXT:
+            LINK:
+                INFO:   'Please copy past this link in your browser :'
+REGISTRATION:
+    ACTIVATION:
+        TITLE:          'food4share - Activation needed'
+        INFO:           'Your account was created, please check your email account to activate ❤️'
