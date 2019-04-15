@@ -11,9 +11,9 @@ class DefaultController
 {
     /**
      * @Route("/", name="homepage")
-     * @return Response
+     * @return  Response
      */
-    public function hompageAction(Environment $twig)
+    public function homepageAction(Environment $twig)
     {
         return new Response(
             $twig->render(
