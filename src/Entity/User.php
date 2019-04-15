@@ -80,7 +80,7 @@ class User implements UserInterface
     private $offers;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\canton", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Canton", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
     private $canton;
