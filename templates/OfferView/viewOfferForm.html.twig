@@ -1,7 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}view offer{% endblock %}
+{% block title %}View Offer{% endblock %}
 
 {% block body %}
-    <h1>View offer</h1>
+    <h1>View Offer</h1>
+    {% block main %}
+        <h3>Presentation JUST FOR TEST</h3>
+        <p>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto asperiores autem blanditiis
+        consequuntur doloremque eligendi facere illo illum incidunt ipsam iste itaque labore laborum magnam minima minus
+        modi natus nesciunt quaerat qui quidem, reiciendis repudiandae suscipit temporibus vero voluptas voluptates?
+        Aliquid architecto asperiores at beatae consequatur consequuntur dolor dolore dolorem dolorum eligendi eos
+        explicabo harum itaque iure laborum modi molestias natus non nulla numquam officia placeat quo saepe, sapiente
+        sed tempore velit voluptate. Ad aspernatur assumenda debitis deleniti deserunt dignissimos ducimus eos eveniet
+        harum illum iste laborum laudantium, libero maiores molestiae nostrum odit omnis pariatur perferendis,
+        perspiciatis quaerat quibusdam quod repudiandae similique sit tenetur ullam voluptates! Earum magnam, quia.
+        Error illum incidunt itaque? Ab adipisci, aliquam aperiam autem eaque eveniet facere illum ipsa itaque libero,
+        necessitatibus odit quasi, ratione sapiente sint vero voluptas. Aliquid autem consequatur doloremque eos id ipsa
+        libero mollitia nulla sit veritatis? Quod rem sapiente vel! Ab aliquam aliquid aspernatur atque beatae
+        blanditiis consequuntur cum dignissimos, distinctio dolore eligendi error eum excepturi expedita id, impedit
+        iste laudantium magnam magni maiores maxime minima placeat quaerat quidem quisquam ratione reiciendis
+        reprehenderit repudiandae rerum sapiente sunt tempora temporibus ullam velit veniam voluptatem voluptatum?
+        Aliquid aspernatur perferendis quo totam vel.
+        </p>
+
+    {% endblock %}
+
+    <table border="1" style="width: 100%;">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>sharer_id_id</td>
+            <td>canton_id_id</td>
+            <td>title</td>
+            <td>description</td>
+            <td>picture_path</td>
+            <td>created_at</td>
+            <td>expiration_date</td>
+        </tr>
+        </thead>
+        <tbody>
+            {% for offer in offers %}
+                <tr>
+                    <td>{{ 'offer.id' }}</td>
+                    <td>{{ 'offer.sharer_id_id' }}</td>
+                    <td>{{ 'offer.canton_id_id' }}</td>
+                    <td>{{ 'offer.title' }}</td>
+                    <td>{{ 'offer.description' }}</td>
+                    <td>{{ 'offer.picture_path' }}</td>
+                    <td>{{ 'offer.created_at|date("m/d/Y")' }}</td>
+                    <td>{{ 'offer.expiration_date|date("m/d/Y")' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
+
+
