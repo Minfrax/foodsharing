@@ -9,6 +9,8 @@
         <article>
             <h3>{{ offer.getTitle() }}</h3>
             <p>{{ offer.getDescription() }}</p>
+            <p><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+            <a href="/?id={{ offer.getId }}">View</a>
         </article>
         {% endfor %}
     </section>
