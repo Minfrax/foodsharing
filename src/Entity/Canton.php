@@ -95,6 +95,11 @@ class Canton
         return $this->users;
     }
 
+    public function __toString()
+    {
+        return $this->getCantonName();
+    }
+
     public function addUser(User $user): self
     {
         if (!$this->users->contains($user)) {
