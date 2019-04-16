@@ -17,7 +17,7 @@ class Offer
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $sharer_id;
@@ -58,7 +58,7 @@ class Offer
     private $active;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\canton", inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Canton", inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $cantonID;

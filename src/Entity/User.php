@@ -5,10 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class User implements UserInterface
 {
@@ -60,9 +62,9 @@ class User implements UserInterface
     private $active_token;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
      */
-    private $roles;
+    private $roles = [];
 
     /**
      * @ORM\Column(type="datetime")
@@ -80,13 +82,14 @@ class User implements UserInterface
     private $offers;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\canton", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Canton", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
     private $canton;
 
     public function __construct()
     {
+        $this->createdAt = new \DateTime();
         $this->offers = new ArrayCollection();
     }
 
@@ -191,12 +194,19 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles(): ?string
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        return $this->roles;
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+
+        return array_unique($roles);
     }
 
-    public function setRoles(string $roles): self
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
