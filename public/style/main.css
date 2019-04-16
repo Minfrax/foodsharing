@@ -32,3 +32,11 @@ nav ul li a:hover {
 h1 {
     text-align: center;
 }
+
+#tos {
+    border-radius: 20px;    
+    margin: 30px 0 0 0;
+    padding: 10px;
+    text-align:justify;
+    background-color: #fff;
+}
