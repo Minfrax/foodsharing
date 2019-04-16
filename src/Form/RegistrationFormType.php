@@ -7,11 +7,12 @@ use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
-
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 // use's for termsAccepted //
@@ -33,26 +34,17 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class)
             // end of added to test proposes
 
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
-            ])
+            ->add('password', RepeatedType::class,
+                [
+                    'type' => PasswordType::class,
+                    'invalid_message' => 'Password must match',
+                    'first_options' => ['label' => 'Password'],
+                    'second_options' => ['label' =>'Repeat password']
+                ])
             ->add('canton',
                 EntityType::class,
                 [
-                    'label' => 'canton_name',
+                    'label' => 'Canton',
                     'class' => Canton::class,
                     'multiple' => false
                 ]
@@ -62,8 +54,17 @@ class RegistrationFormType extends AbstractType
             ->add(
                 'termaccepted',
                 CheckboxType::class, [
-                'label' => 'Accept tos'
-            ])
+                'label' => 'Accept Terms of service'
+            ]);
+            if ($options['standalone']){
+                $builder->add('Submit',SubmitType::class,
+                    [
+                        'label' => 'FORM.USER.SUBMIT.LABEL',
+                        'attr' => ['class' =>'btn-success']
+                    ])
+                ;
+
+            }
         ;
     }
 
@@ -71,6 +72,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'standalone' => false
         ]);
     }
 }
