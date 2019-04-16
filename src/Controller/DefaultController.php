@@ -31,4 +31,19 @@ class DefaultController
             )
         );
     }
+
+
+    /**
+     * @param Environment $twig
+     * @return Response
+     * @Route("/tos", name="terms")
+     */
+    public function termOfService(Environment $twig)
+    {
+        return new Response(
+            $twig->render(
+                'Terms/terms.html.twig'
+            )
+        );
+    }
 }
