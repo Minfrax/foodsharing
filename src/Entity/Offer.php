@@ -63,6 +63,14 @@ class Offer
      */
     private $cantonID;
 
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->active = 1;
+        $this->cantonID = $this->getCantonID();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

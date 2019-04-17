@@ -32,21 +32,17 @@ class DefaultController
         );
     }
 
+
     /**
      * @param Environment $twig
-     * @Route("/view", name="viewOfferForm")
      * @return Response
+     * @Route("/tos", name="terms")
      */
-    public function testAction(Environment $twig, Request $request, OfferRepository $repository)
+    public function termOfService(Environment $twig)
     {
         return new Response(
             $twig->render(
-                'OfferView/viewOfferForm.html.twig',
-                [
-                    'offers' => $repository->findAll(
-                        $request
-                    )
-                ]
+                'Terms/terms.html.twig'
             )
         );
     }

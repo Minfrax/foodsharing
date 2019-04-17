@@ -23,7 +23,7 @@ class RegistrationController extends AbstractController
     ): Response {
         $user = new User();
         // standalone PHP class can be used, which can then be reused anywhere in your application(after $user): , ['standalone' => true]
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationFormType::class, $user, ['standalone' => true]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -31,7 +31,7 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
 

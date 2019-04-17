@@ -3,15 +3,15 @@
 {% block title %}{{ parent() }} - Homepage{% endblock %}
 
 {% block body %}
-    <h1>Homepage</h1>
+    <h1>Food4Share</h1>
     <section>
         {% for offer in offers %}
         <article>
             <h3>{{ offer.getTitle() }}</h3>
             <p>{{ offer.getDescription() }}</p>
+            <p><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+            <a href="/?id={{ offer.getId }}">View</a>
         </article>
         {% endfor %}
     </section>
-
-
 {% endblock %}
