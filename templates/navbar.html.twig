@@ -17,6 +17,9 @@
                     {{ 'NAV.TERMS'|trans }}
                 </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_logout') }}">{{ 'NAV.LOGOUT'| trans }} </a>
+            </li>
             {% if is_granted ('IS_AUTHENTICATED_FULLY') %}
             {% else %}
             <li class="nav-item active">
@@ -28,7 +31,7 @@
                 <a class="nav-link" href="{{ path('app_register') }}">
                     {{ 'NAV.REGISTER'|trans }}
                 </a>
-            </li>
+
             {% endif %}
         </ul>
     </div>
