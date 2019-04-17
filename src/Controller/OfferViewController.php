@@ -8,27 +8,26 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
 use App\Entity\Offer;
+
 
 class OfferViewController
 {
-    public function presentOffer(Offer $offer){
-
-        $offer = Offer::getId();
-
-        return;
-    }
-
     /**
-     * @Route("/offer", name="view_offer")
+     * @Route("/offer/{id}", name="view_offer")
      */
-    public function viewOfferAction(Request $request)
+    public function viewOfferAction($id)
     {
-        $offer = Offer::getId();
+        $offer= Offer::findById($id);
+        if (!$offer) {
+            throw $this->createNotFoundException('The offer does not exist');
+        }
+        else {
+            $featured = Offer::findOne(['id' => 'featured']);
+            $offer = Offer::get();
 
-        return render('templates/OfferView/viewOfferForm.html.twig');
+            return $this->render('templates/OfferView/viewOfferForm.html.twig', $id);
+        }
     }
 }

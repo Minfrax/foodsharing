@@ -23,36 +23,43 @@
         Aliquid aspernatur perferendis quo totam vel.
         </p>
 
-    {% endblock %}
+        <table border="1" style="width: 100%;">
+            <thead>
+            <tr>
+                <td>id</td>
+                <td>sharer_id_id</td>
+                <td>canton_id_id</td>
+                <td>title</td>
+                <td>description</td>
+                <td>picture_path</td>
+                <td>created_at</td>
+                <td>expiration_date</td>
+            </tr>
+            </thead>
+            <tbody>
+                {% for offer in offers %}
+                    <tr>
+                        <td>{{ 'offer.id' }}</td>
+                        <td>{{ 'offer.sharer_id_id' }}</td>
+                        <td>{{ 'offer.canton_id_id' }}</td>
+                        <td>{{ 'offer.title' }}</td>
+                        <td>{{ 'offer.description' }}</td>
+                        <td>{{ 'offer.picture_path' }}</td>
+                        <td>{{ 'offer.created_at|date("m/d/Y")' }}</td>
+                        <td>{{ 'offer.expiration_date|date("m/d/Y")' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <table border="1" style="width: 100%;">
-        <thead>
-        <tr>
-            <td>id</td>
-            <td>sharer_id_id</td>
-            <td>canton_id_id</td>
-            <td>title</td>
-            <td>description</td>
-            <td>picture_path</td>
-            <td>created_at</td>
-            <td>expiration_date</td>
-        </tr>
-        </thead>
-        <tbody>
-            {% for offer in offers %}
-                <tr>
-                    <td>{{ 'offer.id' }}</td>
-                    <td>{{ 'offer.sharer_id_id' }}</td>
-                    <td>{{ 'offer.canton_id_id' }}</td>
-                    <td>{{ 'offer.title' }}</td>
-                    <td>{{ 'offer.description' }}</td>
-                    <td>{{ 'offer.picture_path' }}</td>
-                    <td>{{ 'offer.created_at|date("m/d/Y")' }}</td>
-                    <td>{{ 'offer.expiration_date|date("m/d/Y")' }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <!-- testing new solution -->
+        <div>
+            <h3>{{ 'offer.id' }}</h3>
+            <h3>{{ 'offer.sharer_id_id' }}</h3>
+            <h3>{{ 'offer.description' }}</h3>
+        </div>
+        <!-- end of testing new solution -->
+    {% endblock %}
 
 {% endblock %}
 
