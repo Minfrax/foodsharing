@@ -18,7 +18,7 @@ class DefaultController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twiig\Error\SyntaxError
      */
-    public function hompageAction(Environment $twig, Request $request, OfferRepository $repository)
+    public function homepageAction(Environment $twig, Request $request, OfferRepository $repository)
     {
         return new Response(
             $twig->render(
@@ -46,4 +46,5 @@ class DefaultController
             )
         );
     }
+
 }

@@ -58,3 +58,16 @@ REGISTRATION:
     ACTIVATION:
         TITLE:          'food4share - Activation needed'
         INFO:           'Your account was created, please check your email account to activate ❤️'
+
+OFFERVIEW:
+    OFFER:
+        TITLE:
+            LABEL:      'Chosen offer'
+        DESCRIPTION:
+            LABEL:      'Offer description'
+        QUANTITY:
+            LABEL:      'Offer amount'
+        CANTON:
+            LABEL:      'Canton localisation'
+        PIC_FILE:
+            LABEL:      'Selected picture'
