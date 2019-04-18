@@ -65,11 +65,6 @@ class CreateOfferController extends AbstractController
             )
         );
 
-
-
-     //   return $this->render('OfferCED/addOfferForm.html.twig', [
-     //       'CreateOfferForm' => $form->createView(),
-     //   ]);
     }
 
 }
