@@ -9,7 +9,6 @@ parameters:
     register_mail_sender:           'noreply-fitforfood4share@gmail.com'
     register_mail_txt_template:     'UserRegister/registrationEmail.txt.twig'
     register_mail_html_template:    'UserRegister/registrationEmailUser.html.twig'
-
     upload_directory:               '%kernel.root_dir%/../var/uploads/'
 
 services:

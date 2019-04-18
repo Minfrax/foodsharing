@@ -75,7 +75,7 @@ class RegistrationController extends AbstractController
      */
     public function activateToken(
         string $token,
-    TokenStorageInterface $tokenStorage
+        TokenStorageInterface $tokenStorage
     ) {
         $manager = $this->getDoctrine()->getManager();
         $userRepository = $manager->getRepository(User::class);
