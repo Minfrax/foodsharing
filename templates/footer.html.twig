@@ -16,7 +16,8 @@
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Food4Share</h5>
                 <p>Your plateform to share your leftover food, help us to fight food waste! Contribute to save our planet and reduce your ecological footprint! </p>
                 <!-- Call to action -->
-
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {% else %}
                 <ul class="list-unstyled list-inline ">
                     <li class="list-inline-item">
                         <h5 class="mb-1">Register for free</h5>
@@ -25,6 +26,7 @@
                         <a href="{{ path ('app_register') }}" class="btn btn-success btn-rounded">Sign up!</a>
                     </li>
                 </ul>
+                {% endif %}
                 <!-- Call to action -->
             </div>
             <!-- Grid column -->

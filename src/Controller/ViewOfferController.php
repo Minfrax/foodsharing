@@ -9,13 +9,15 @@
 namespace App\Controller;
 
 use App\Repository\OfferRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Offer;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Twig\Environment;
 
-class ViewOfferController
+class ViewOfferController extends AbstractController
 {
     /**
      * @Route("/offer/{id}", name="offer_viewPage")
@@ -37,5 +39,25 @@ class ViewOfferController
         );
 
     }
+
+
+    /**
+     * @Route("/picture/{picture}", name="get_picture_content")
+     */
+
+    public function gimmePic(Offer $picture)
+    {
+
+        $path = $this->getParameter('upload_directory') . $picture->getPicturePath();
+
+        return new Response(
+            file_get_contents($path),
+            200,
+            [
+                'Content-Type' => $picture->getMimeType()
+            ]
+        );
+    }
+
 
 }

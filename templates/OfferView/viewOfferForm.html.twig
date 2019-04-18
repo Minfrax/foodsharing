@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}View Offer{% endblock %}
 
 {% block body %}
     <h1>View Offer</h1>
-    {% block main %}
         <h3>Presentation JUST FOR TEST</h3>
         <p>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto asperiores autem blanditiis
         consequuntur doloremque eligendi facere illo illum incidunt ipsam iste itaque labore laborum magnam minima minus
@@ -43,19 +41,17 @@
                     <tr>
                         <td>{{ offer.getActive() }}</td>
                         <td>{{ offer.getId() }}</td>
-                        <td>error: getSharerId()</td>
+                        <td>{{ offer.getSharerId().getUsername }}</td>
                         <td>{{ offer.getCantonId() }}</td>
                         <td>{{ offer.getTitle() }}</td>
                         <td>{{ offer.getDescription() }}</td>
+                        <img style="width:250px; height: 250px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
                         <td>{{ offer.getPicturePath() }}</td>
-                        <td>error:created_at</td>
-                        <td>error:expiration_date</td>
+                        <td>{{ offer.getCreatedAt | date('Y-m-D') }}</td>
                         <td>{{ offer.getMimeType() }}</td>
-
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-    {% endblock %}
 
 {% endblock %}
