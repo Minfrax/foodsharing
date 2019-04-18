@@ -4,4 +4,4 @@
 
 {{ 'MAIL.REGISTER.INFO'|trans({'%name%': user.getUsername()}) }}
 
-{{ 'MAIL.REGISTER.TXT.LINK.INFO'|trans }} {{ url('activate_account', {'token': user.getActivationToken()}) }}
+{{ 'MAIL.REGISTER.TXT.LINK.INFO'|trans }} {{ url('activate_account', {'token': user.getActiveToken()}) }}
