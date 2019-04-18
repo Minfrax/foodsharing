@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -27,7 +28,9 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -57,9 +60,9 @@ class User implements UserInterface
     private $active;
 
     /**
-     * @ORM\Column(type="string", length=36, nullable=true)
+     * @ORM\Column(type="guid", nullable=true, unique=true)
      */
-    private $active_token;
+    private $activeToken;
 
     /**
      * @ORM\Column(type="json")
@@ -184,12 +187,12 @@ class User implements UserInterface
 
     public function getActiveToken(): ?string
     {
-        return $this->active_token;
+        return $this->activeToken;
     }
 
-    public function setActiveToken(?string $active_token): self
+    public function setActiveToken(?string $activeToken): self
     {
-        $this->active_token = $active_token;
+        $this->activeToken = $activeToken;
 
         return $this;
     }

@@ -12,11 +12,14 @@
                     {{ 'NAV.HOME'|trans }}
                 </a>
             </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="nav-item active">
-                <a class="nav-link" href="{{ path('terms') }}">
-                    {{ 'NAV.TERMS'|trans }}
-                </a>
+                <a class="nav-link" href="{{ path('app_create') }}">Create Offer</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_logout') }}">{{ 'NAV.LOGOUT'| trans }} </a>
+            </li>
+            {% endif %}
             {% if is_granted ('IS_AUTHENTICATED_FULLY') %}
             {% else %}
             <li class="nav-item active">
@@ -28,6 +31,11 @@
                 <a class="nav-link" href="{{ path('app_register') }}">
                     {{ 'NAV.REGISTER'|trans }}
                 </a>
+
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_adm') }}">AdminConsole</a>
             </li>
             {% endif %}
         </ul>
