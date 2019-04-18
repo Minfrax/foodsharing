@@ -14,8 +14,8 @@ $(function() {
         $('#filterList').load(this.dataset.target.replace('__cantonID__', selectBox));
 
         let content = $('.content');
-        $('#filterList').show();
         content.hide();
+        $('#filterList').show();
     });
 
     resBtn.click(function(){

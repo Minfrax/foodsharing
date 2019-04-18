@@ -14,7 +14,7 @@
 
 <p>
     {{ 'MAIL.REGISTER.HTML.LINK.INFO'|trans }}
-    <a href="{{ url('activate_account', {'token': user.getActivationToken()}) }}">
+    <a href="{{ url('activate_account', {'token': user.getActiveToken()}) }}">
         {{ 'MAIL.REGISTER.HTML.LINK.LABEL'|trans }}
     </a>
 </p>
