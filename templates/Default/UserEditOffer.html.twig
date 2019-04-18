@@ -1,0 +1,19 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1>Edit your offers</h1>
+    <section>
+        {% for offer in offers %}
+            <article>
+                <ul class="content">
+                    <li>
+                        <h3 class="content">{{ offer.getTitle() }}</h3>
+                        <p class="content">{{ offer.getDescription() }}</p>
+                        <p class="content"><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+                        <a href="offer/{{ offer.getId }}" class="content">View</a>
+                    </li>
+                </ul>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
