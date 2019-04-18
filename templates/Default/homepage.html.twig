@@ -26,22 +26,21 @@
             <button id="resBtn">Reset</button>
         </form>
     </section>
-    <ul id="filterList">
-
-    </ul>
+    <section class="container">
+        <div class="row" id="filterList">
+        </div>
+    </section>
     <!-- END FILTER OPTIONS -->
-    <section>
+    <section class="container">
+        <div class="row">
         {% for offer in offers %}
-        <article>
-            <ul class="content">
-                <li>
-                    <h3 class="content">{{ offer.getTitle() }}</h3>
-                    <p class="content">{{ offer.getDescription() }}</p>
-                    <p class="content"><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
-                    <a href="offer/{{ offer.getId }}" class="content">View</a>
-                </li>
-            </ul>
+        <article class="col-md-6 offerClass content">
+            <h3 class="content">{{ offer.getTitle() }}</h3>
+            <p class="content">{{ offer.getDescription() }}</p>
+            <p class="content"><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+            <a href="offer/{{ offer.getId }}" class="content">View</a>
         </article>
         {% endfor %}
+        </div>
     </section>
 {% endblock %}

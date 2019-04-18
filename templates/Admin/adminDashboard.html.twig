@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}admin All{% endblock %}
+
+{% block body %}
+    <h1>Administrate All</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Offer Overview</h2>
+            {% for offer in offers %}
+                <h4>{{ offer.getTitle() }}</h4>
+                <p><a href="offer/{{ offer.getId }}">View</a>
+                <a href="admConsole/del/{{ offer.getId }}">Delete</a></p>
+                <hr>
+            {% endfor %}
+            </div>
+            <div class="col-6">
+                <h2>User Overview</h2>
+            {% for user in users %}
+                <h4>{{ user.getUsername() }}</h4>
+                <p><span style="font-weight:bold;">E-Mail: </span>{{ user.getEmail() }}</p>
+                <p><span style="font-weight:bold;">Lastname: </span>{{ user.getLastname() }}</p>
+                <p><span style="font-weight:bold;">Firstname: </span>{{ user.getFirstname() }}</p>
+                <p><span style="font-weight:bold;">Telephone: </span>{{ user.getTelephone() }}</p>
+                <a href="admConsole/delUser/{{ user.getId }}">Delete</a>
+                <hr>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
