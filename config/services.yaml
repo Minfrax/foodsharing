@@ -9,6 +9,10 @@ parameters:
     register_mail_sender:           'noreply-fitforfood4share@gmail.com'
     register_mail_txt_template:     'UserRegister/registrationEmail.txt.twig'
     register_mail_html_template:    'UserRegister/registrationEmailUser.html.twig'
+    password_mail_subject:          'Password recovery'
+    password_mail_sender:           'noreply-fitforfood4share@gmail.com'
+    password_mail_txt_template:     'PasswordRecovery/passwordEmail.txt.twig'
+    password_mail_html_template:    'PasswordRecovery/passwordEmailUser.html.twig'
     upload_directory:               '%kernel.root_dir%/../var/uploads/'
 
 services:
@@ -38,3 +42,10 @@ services:
             $sender:        '%register_mail_sender%'
             $txtTemplate:   '%register_mail_txt_template%'
             $htmlTemplate:  '%register_mail_html_template%'
+
+    App\Mailer\PasswordMailer:
+        arguments:
+            $subject:       '%password_mail_subject%'
+            $sender:        '%password_mail_sender%'
+            $txtTemplate:   '%password_mail_txt_template%'
+            $htmlTemplate:  '%password_mail_html_template%'

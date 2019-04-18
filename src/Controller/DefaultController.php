@@ -16,7 +16,7 @@ class DefaultController
      * @param Environment $twig
      * @return Response
      * @throws \Twig\Error\RuntimeError
-     * @throws \Twiig\Error\SyntaxError
+     * @throws \Twig\Error\SyntaxError
      */
     public function hompageAction(Environment $twig, Request $request, OfferRepository $repository)
     {
