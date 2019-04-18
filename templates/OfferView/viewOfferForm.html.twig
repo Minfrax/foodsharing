@@ -5,53 +5,34 @@
 {% block body %}
     <h1>View Offer</h1>
     {% block main %}
-        <h3>Presentation JUST FOR TEST</h3>
+        <h3>Presentation - Some nice words from the founders</h3>
         <p>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto asperiores autem blanditiis
         consequuntur doloremque eligendi facere illo illum incidunt ipsam iste itaque labore laborum magnam minima minus
         modi natus nesciunt quaerat qui quidem, reiciendis repudiandae suscipit temporibus vero voluptas voluptates?
-        Aliquid architecto asperiores at beatae consequatur consequuntur dolor dolore dolorem dolorum eligendi eos
-        explicabo harum itaque iure laborum modi molestias natus non nulla numquam officia placeat quo saepe, sapiente
-        sed tempore velit voluptate. Ad aspernatur assumenda debitis deleniti deserunt dignissimos ducimus eos eveniet
-        harum illum iste laborum laudantium, libero maiores molestiae nostrum odit omnis pariatur perferendis,
-        perspiciatis quaerat quibusdam quod repudiandae similique sit tenetur ullam voluptates! Earum magnam, quia.
-        Error illum incidunt itaque? Ab adipisci, aliquam aperiam autem eaque eveniet facere illum ipsa itaque libero,
-        necessitatibus odit quasi, ratione sapiente sint vero voluptas. Aliquid autem consequatur doloremque eos id ipsa
-        libero mollitia nulla sit veritatis? Quod rem sapiente vel! Ab aliquam aliquid aspernatur atque beatae
-        blanditiis consequuntur cum dignissimos, distinctio dolore eligendi error eum excepturi expedita id, impedit
-        iste laudantium magnam magni maiores maxime minima placeat quaerat quidem quisquam ratione reiciendis
-        reprehenderit repudiandae rerum sapiente sunt tempora temporibus ullam velit veniam voluptatem voluptatum?
-        Aliquid aspernatur perferendis quo totam vel.
         </p>
 
         <table border="1" style="width: 100%;">
             <thead>
+            <h3>title</h3>
             <tr>
-                <td>active</td>
-                <td>id</td>
-                <td>sharer_id_id</td>
-                <td>canton_id_id</td>
-                <td>title</td>
-                <td>description</td>
                 <td>picture_path</td>
+                <td>description</td>
                 <td>created_at</td>
-                <td>expiration_date</td>
-                <td>mime_type</td>
+                <td>username</td>
+                <td>canton_id_id</td>
+                <td>email to at: </td>
             </tr>
             </thead>
             <tbody>
                 {% for offer in offers %}
+                    {{ offer.getTitle() }}
                     <tr>
-                        <td>{{ offer.getActive() }}</td>
-                        <td>{{ offer.getId() }}</td>
-                        <td>error: getSharerId()</td>
-                        <td>{{ offer.getCantonId() }}</td>
-                        <td>{{ offer.getTitle() }}</td>
+                        <td><img src="{{path ('get_picture_content', {'picture':offer.getID()}) }} alt="Food Image" height="200" width="200""></td>
                         <td>{{ offer.getDescription() }}</td>
-                        <td>{{ offer.getPicturePath() }}</td>
-                        <td>error:created_at</td>
-                        <td>error:expiration_date</td>
-                        <td>{{ offer.getMimeType() }}</td>
-
+                        <td>{{ offer.getCreatedat |date('Y-m-d') }}</td>
+                        <td>{{ offer.getSharerId.getUsername()}}</td>
+                        <td>{{ offer.getCantonId() }}</td>
+                        <td><a href="mailto:{{ offer.getSharerId.getEmail() }}">emailLink</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

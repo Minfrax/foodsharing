@@ -16,7 +16,6 @@ class DefaultController
      * @param Environment $twig
      * @return Response
      * @throws \Twig\Error\RuntimeError
-     * @throws \Twiig\Error\SyntaxError
      */
     public function homepageAction(Environment $twig, Request $request, OfferRepository $repository)
     {
@@ -47,4 +46,60 @@ class DefaultController
         );
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function filterAction(Request $request, Environment $twig, OfferRepository $repository)
+    {
+        return new Response(
+            $twig->render(
+                'Default/homepage.html.twig',
+                [
+                    'offers' => $repository->findBy(
+                        [
+                            'cantonID' => $request->get('cantonID')
+                        ]
+                    )
+                ]
+            )
+        );
+    }
 }

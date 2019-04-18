@@ -65,13 +65,24 @@ class CreateOfferController extends AbstractController
             )
         );
 
-
-
-     //   return $this->render('OfferCED/addOfferForm.html.twig', [
-     //       'CreateOfferForm' => $form->createView(),
-     //   ]);
     }
 
+    /**
+     * @Route("/picture/{picture}", name="get_picture_content")
+     */
+    public function gimmePic(Offer $picture)
+    {
+
+        $path = $this->getParameter('upload_directory') . $picture->getPicturePath();
+
+        return new Response(
+            file_get_contents($path),
+            200,
+            [
+                'Content-Type' => $picture->getMimeType()
+            ]
+        );
+    }
 }
 
 
