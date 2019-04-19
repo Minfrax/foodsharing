@@ -28,11 +28,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('username', TextType::class)
-
-            // added to test proposes
-            //->add('canton_id')
             ->add('email', EmailType::class)
-            // end of added to test proposes
 
             ->add('password', RepeatedType::class,
                 [
@@ -47,8 +43,9 @@ class RegistrationFormType extends AbstractType
                     'label' => 'Canton',
                     'class' => Canton::class,
                     'multiple' => false
-                ]
-                )
+                ])
+            ->add('telephone', TextType::class)
+
 
             /// Adding a accept terms checkbox ///
             ->add(
@@ -63,7 +60,6 @@ class RegistrationFormType extends AbstractType
                         'attr' => ['class' =>'btn-success']
                     ])
                 ;
-
             }
         ;
     }
