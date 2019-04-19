@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/imageBG2.png');
+    background-image: url('../images/imageBG.png');
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -11,16 +11,16 @@ body {
 }
 
 .navbar-toggler-icon{
-    background-color: #fff;
+    background-image: url('../images/icon1.png');
 }
 
 .navbar-toggler{
-    background-color: #5a3921;
+
 }
 
 nav ul li a {
     color: #5a3921;
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-left: 15px;
 }
 
@@ -33,7 +33,7 @@ nav ul li a:hover {
 }
 
 .navbar-brand:hover {
-    color: #ffffb5;
+
 }
 
 h1 {
@@ -45,11 +45,13 @@ h2 {
     text-align: center;
     color: #5a3921;
 }
-
+h3 {
+    color: #5a3921;
+}
 h4 {
     text-align: center;
     color: #5a3921;
-    margin: -20px 0 30px 0;
+    margin: 20px 0 10px 0;
 }
 
 #tos {
@@ -78,10 +80,13 @@ article {
 
 #mainContent {
     background-color: rgba(254, 251, 251, 0.77);
-    padding: 50px;
     border-radius: 20px;
+    padding: 30px 20px 30px 20px;
 }
 
+.container-fluid{
+
+}
 .page-footer a {
     color: black;
 }
@@ -102,4 +107,13 @@ p span {
 
 .page-footer h5 {
     color: #5a3921;
+}
+
+.page-footer{
+    margin: 40px 0 0 0;
+}
+
+#filterBar {
+    text-align: center;
+    margin: 0 auto;
 }

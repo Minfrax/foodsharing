@@ -7,8 +7,8 @@
         {% for offer in offers %}
             <article>
                 <h3>{{ offer.getTitle }}</h3>
-                <img style="width:330px; height: 290px; border: 1px solid black; border-radius:10px; margin-bottom: 10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
-                <p>{{ offer.getDescription }}</p>
+                <img style="width:390px; height: 340px; border: 1px solid black; border-radius:10px; margin-bottom: 10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
+                <p style="overflow-wrap:break-word">{{ offer.getDescription }}</p>
                 <p><span>From User: </span>{{ offer.getSharerId().getUsername() }}</p>
                 <p><span>In Canton: </span>{{ offer.getCantonId() }}</p>
                 <p style="border-bottom: 1px dotted black;"><span>Created At: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
