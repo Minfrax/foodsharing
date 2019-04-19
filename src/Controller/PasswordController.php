@@ -88,8 +88,8 @@ class PasswordController extends AbstractController
             ->add('resetPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'label' => 'New Password',
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                'first_options' => ['label' => 'New Password'],
+                'second_options' => ['label' => ' Confirm Password'],
             ])
             ->add("Reset", SubmitType::class)
             ->getForm();

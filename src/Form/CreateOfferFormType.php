@@ -20,7 +20,9 @@ class CreateOfferFormType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'FORM.OFFER.TITLE.LABEL'])
-            ->add('description', TextType::class, ['label' => 'FORM.OFFER.DESCRIPTION.LABEL'])
+            ->add('description', TextType::class, [
+                'label' => 'FORM.OFFER.DESCRIPTION.LABEL'
+            ])
             ->add('canton_id', EntityType::class,
                 [
                     'label' => 'FORM.OFFER.CANTON.LABEL',
