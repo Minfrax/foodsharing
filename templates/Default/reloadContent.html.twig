@@ -2,8 +2,10 @@
 {% for offer in offers %}
 <article class="col-md-5">
     <h3>{{ offer.getTitle() }}</h3>
-    <p>{{ offer.getDescription }}</p>
-    <p>{{ offer.createdAt | date('Y-m-D') }}</p>
+    <img style="width:330px; height: 290px; border: 1px solid black; border-radius:10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
+    <p><span style="font-weight: bold;">Description: </span>{{ offer.getDescription() }}</p>
+    <p><span style="font-weight: bold;">Created at: </span>{{ offer.createdAt() | date('Y-m-d') }}</p>
+    <p><span style="font-weight: bold;">Offered by: </span>{{ offer.getSharerId().getUsername() }}</p>
     <a href="offer/{{ offer.getId }}">View</a>
 </article>
 {% endfor %}
