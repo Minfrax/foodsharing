@@ -1,6 +1,6 @@
 {% block body %}
 {% for offer in offers %}
-<article class="col-md-6">
+<article class="col-md-5">
     <h3>{{ offer.getTitle() }}</h3>
     <p>{{ offer.getDescription }}</p>
     <p>{{ offer.createdAt | date('Y-m-D') }}</p>

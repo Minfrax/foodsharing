@@ -5,42 +5,44 @@
 {% block body %}
     <h1>Food4Share</h1>
     <!-- FILTER OPTIONS START -->
-    <section id="filterBar">
-        <form action="">
-            <label for="filterCanton">Filter by Canton</label>
-            <select name="cantonID" id="filterCanton">
-                <option value="1">Capellen</option>
-                <option value="2">Clervaux</option>
-                <option value="3">Diekirch</option>
-                <option value="4">Echternach</option>
-                <option value="5">Esch-sur-Alzette</option>
-                <option value="6">Grevenmacher</option>
-                <option value="7">Luxembourg</option>
-                <option value="8">Mersch</option>
-                <option value="9">Redange</option>
-                <option value="10">Remich</option>
-                <option value="11">Vianden</option>
-                <option value="12">Wiltz</option>
-            </select>
-            <button id="filterBtn" data-target="{{ path("reloadContent", {cantonID: '__cantonID__'}) }}">Filter</button>
-            <button id="resBtn">Reset</button>
-        </form>
-    </section>
-    <section class="container">
-        <div class="row" id="filterList">
-        </div>
-    </section>
-    <!-- END FILTER OPTIONS -->
-    <section class="container">
-        <div class="row">
-        {% for offer in offers %}
-        <article class="col-md-6 offerClass content">
-            <h3 class="content">{{ offer.getTitle() }}</h3>
-            <p class="content">{{ offer.getDescription() }}</p>
-            <p class="content"><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
-            <a href="offer/{{ offer.getId }}" class="content">View</a>
-        </article>
-        {% endfor %}
-        </div>
+    <section id="mainContent">
+        <section id="filterBar">
+            <form action="">
+                <label for="filterCanton">Filter by Canton</label>
+                <select name="cantonID" id="filterCanton">
+                    <option value="1">Capellen</option>
+                    <option value="2">Clervaux</option>
+                    <option value="3">Diekirch</option>
+                    <option value="4">Echternach</option>
+                    <option value="5">Esch-sur-Alzette</option>
+                    <option value="6">Grevenmacher</option>
+                    <option value="7">Luxembourg</option>
+                    <option value="8">Mersch</option>
+                    <option value="9">Redange</option>
+                    <option value="10">Remich</option>
+                    <option value="11">Vianden</option>
+                    <option value="12">Wiltz</option>
+                </select>
+                <button id="filterBtn" data-target="{{ path("reloadContent", {cantonID: '__cantonID__'}) }}">Filter</button>
+                <button id="resBtn">Reset</button>
+            </form>
+        </section>
+        <section class="container">
+            <div class="row" id="filterList">
+            </div>
+        </section>
+        <!-- END FILTER OPTIONS -->
+        <section class="container">
+            <div class="row">
+            {% for offer in offers %}
+            <article class="col-md-5 offerClass content">
+                <h3 class="content">{{ offer.getTitle() }}</h3>
+                <p class="content">{{ offer.getDescription() }}</p>
+                <p class="content"><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+                <a href="offer/{{ offer.getId }}" class="content">View</a>
+            </article>
+            {% endfor %}
+            </div>
+        </section>
     </section>
 {% endblock %}
