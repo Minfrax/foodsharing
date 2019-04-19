@@ -2,21 +2,22 @@
 {% block title %}View Offer{% endblock %}
 
 {% block body %}
-    <h2>View Offer</h2>
     <section id="mainContent">
+        <h2>Overview</h2>
         {% for offer in offers %}
             <article>
                 <h3>{{ offer.getTitle }}</h3>
-                <img style="width:270px; height: 230px; border: 1px solid black;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
+                <img style="width:330px; height: 290px; border: 1px solid black; border-radius:10px; margin-bottom: 10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
+                <p>{{ offer.getDescription }}</p>
                 <p><span>From User: </span>{{ offer.getSharerId().getUsername() }}</p>
                 <p><span>In Canton: </span>{{ offer.getCantonId() }}</p>
-                <p><span>Description: </span>{{ offer.getDescription }}</p>
-                <p><span>Created At: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
-                <h5>Contact Details</h5>
-                <p><span>E-Mail Address: </span>{{ offer.getSharerId().getEmail }}</p>
+                <p style="border-bottom: 1px dotted black;"><span>Created At: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+                <h5 style="text-align:center; color:#5a3921;">Contact Details</h5>
+                <p><span>E-Mail Address: </span><a href="mailto:{{ offer.getSharerId().getEmail }}">{{ offer.getSharerId().getEmail() }}</a></p>
                 <p><span>Telephone Number: </span>{{ offer.getSharerId().getTelephone }}</p>
             </article>
         {% endfor %}
+        <a href="{{ path('homepage') }}" class="content"><button style="margin:10px 0 10px 10px;" type="button" class="btn btn-outline-info">Go back</button></a>
     </section>
 
 {% endblock %}

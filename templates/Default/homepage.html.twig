@@ -3,48 +3,52 @@
 {% block title %}{{ parent() }} - Homepage{% endblock %}
 
 {% block body %}
-    <h1>Food4Share</h1>
-    <!-- FILTER OPTIONS START -->
-    <section id="mainContent">
-        <section id="filterBar">
-            <form action="">
-                <label for="filterCanton">Filter by Canton</label>
-                <select name="cantonID" id="filterCanton">
-                    <option value="1">Capellen</option>
-                    <option value="2">Clervaux</option>
-                    <option value="3">Diekirch</option>
-                    <option value="4">Echternach</option>
-                    <option value="5">Esch-sur-Alzette</option>
-                    <option value="6">Grevenmacher</option>
-                    <option value="7">Luxembourg</option>
-                    <option value="8">Mersch</option>
-                    <option value="9">Redange</option>
-                    <option value="10">Remich</option>
-                    <option value="11">Vianden</option>
-                    <option value="12">Wiltz</option>
-                </select>
-                <button id="filterBtn" data-target="{{ path("reloadContent", {cantonID: '__cantonID__'}) }}">Filter</button>
-                <button id="resBtn">Reset</button>
-            </form>
+        <h1>Food4Share</h1>
+        <!-- FILTER OPTIONS START -->
+        <section id="mainContent">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <h4>Welcome, {{ app.user.username() }}</h4>
+            {% endif %}
+            <section id="filterBar">
+                <form action="">
+                    <label for="filterCanton">Filter by Canton</label>
+                    <select name="cantonID" id="filterCanton">
+                        <option value="1">Capellen</option>
+                        <option value="2">Clervaux</option>
+                        <option value="3">Diekirch</option>
+                        <option value="4">Echternach</option>
+                        <option value="5">Esch-sur-Alzette</option>
+                        <option value="6">Grevenmacher</option>
+                        <option value="7">Luxembourg</option>
+                        <option value="8">Mersch</option>
+                        <option value="9">Redange</option>
+                        <option value="10">Remich</option>
+                        <option value="11">Vianden</option>
+                        <option value="12">Wiltz</option>
+                    </select>
+                    <button id="filterBtn" data-target="{{ path("reloadContent", {cantonID: '__cantonID__'}) }}">Filter</button>
+                    <button id="resBtn">Reset</button>
+                </form>
+            </section>
+            <section class="container">
+                <div class="row" id="filterList">
+                </div>
+            </section>
+            <!-- END FILTER OPTIONS -->
+            <section class="container">
+                <div class="row">
+                {% for offer in offers | reverse %}
+                <article class="col-md-5 offerClass content">
+                    <h3 class="content" style="color: #5a3921;">{{ offer.getTitle() }}</h3>
+                    <a href="offer/{{ offer.getId }}"><img style="margin-bottom: 10px; width:390px; height: 310px; border: 1px solid #5a3921; border-radius:10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt=""></a>
+                    <p class="content">{{ offer.getDescription() }}</p>
+                    <p class="content"><span style="font-weight: bold;">Canton: </span>{{ offer.getCantonId().getCantonname }}</p>
+                    <p class="content"><span style="font-weight: bold;">Created at: </span>{{ offer.getCreatedAt() | date('Y-m-d') }}</p>
+                    <p><span style="font-weight: bold;">Offered by: </span>{{ offer.getSharerId().getUsername() }}</p>
+                    <a href="offer/{{ offer.getId }}" class="content"><button style="margin-bottom:10px;" type="button" class="btn btn-outline-info">View</button></a>
+                </article>
+                {% endfor %}
+                </div>
+            </section>
         </section>
-        <section class="container">
-            <div class="row" id="filterList">
-            </div>
-        </section>
-        <!-- END FILTER OPTIONS -->
-        <section class="container">
-            <div class="row">
-            {% for offer in offers %}
-            <article class="col-md-5 offerClass content">
-                <h3 class="content">{{ offer.getTitle() }}</h3>
-                <img style="width:330px; height: 290px; border: 1px solid black; border-radius:10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
-                <p class="content"><span style="font-weight: bold;">Description: </span>{{ offer.getDescription() }}</p>
-                <p class="content"><span style="font-weight: bold;">Created at: </span>{{ offer.getCreatedAt() | date('Y-m-d') }}</p>
-                <p><span style="font-weight: bold;">Offered by: </span>{{ offer.getSharerId().getUsername() }}</p>
-                <a href="offer/{{ offer.getId }}" class="content">View</a>
-            </article>
-            {% endfor %}
-            </div>
-        </section>
-    </section>
 {% endblock %}
