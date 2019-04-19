@@ -11,8 +11,9 @@ parameters:
     register_mail_html_template:    'UserRegister/registrationEmailUser.html.twig'
     password_mail_subject:          'Password recovery'
     password_mail_sender:           'noreply-fitforfood4share@gmail.com'
-    password_mail_txt_template:     'PasswordRecovery/passwordEmail.txt.twig'
-    password_mail_html_template:    'PasswordRecovery/passwordEmailUser.html.twig'
+    password_mail_txt_template:     'PasswordRecovery/reset-password-mail.txt.twig'
+    password_mail_html_template:    'PasswordRecovery/reset-password-mail.html.twig'
+
     upload_directory:               '%kernel.root_dir%/../var/uploads/'
 
 services:

@@ -15,6 +15,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Twig\Environment;
@@ -22,7 +24,7 @@ use Twig\Environment;
 class PasswordController extends AbstractController
 {
     /**
-     * @Route("/password/reset")
+     * @Route("/password/reset", name="reset_password")
      */
     public function resetPassword(
         Environment $twig,
@@ -76,10 +78,11 @@ class PasswordController extends AbstractController
         Environment $twig, $token,
         UserPasswordEncoderInterface $passwordEncoder,
         UserRepository $userRepository,
-        Request $request
+        Request $request,
+        TokenStorageInterface $tokenStorage
     )
     {
-        $defaultData = ['message' => 'Enter a nes password'];
+        $defaultData = ['message' => 'Enter a new password'];
 
         $form = $this->createFormBuilder($defaultData)
             ->add('resetPassword', RepeatedType::class, [
@@ -92,7 +95,6 @@ class PasswordController extends AbstractController
             ->getForm();
 
         $form->handleRequest($request);
-
         $user = $userRepository->findOneByActiveToken($token);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -106,10 +108,15 @@ class PasswordController extends AbstractController
                         $data["resetPassword"]
                     )
                 );
+                $user->setActiveToken(null);
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($user);
                 $entityManager->flush();
+
+                $tokenStorage->setToken(
+                    new UsernamePasswordToken($user, null, 'main', $user->getRoles())
+                );
 
                 return new Response($twig->render('PasswordRecovery/restorePassword.html.twig', [
                     "user" => $user
