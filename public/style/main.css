@@ -1,9 +1,9 @@
 body {
-    background-color: #ffffb5;
+    background-image: url('../images/foodBg.jpg');
 }
 
 .navbar {
-    background-color: #7bc67b;
+    background-color: rgba(254, 251, 251, 0.77);
     color: #ffffb5;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -14,11 +14,13 @@ body {
 }
 
 nav ul li a {
-    color: #ffffb5;
+    color: #5a3921;
+    font-size: 2em;
+    margin-left: 15px;
 }
 
 nav ul li a:hover {
-    color: #5a3921;
+    color: #2e660f;
 }
 
 .navbar-brand {
@@ -31,6 +33,12 @@ nav ul li a:hover {
 
 h1 {
     text-align: center;
+    display:none;
+}
+
+h2 {
+    text-align: center;
+    color: #fefefe;
 }
 
 #tos {
@@ -39,4 +47,44 @@ h1 {
     padding: 10px;
     text-align:justify;
     background-color: #fff;
+}
+
+#logo {
+    width: 220px;
+    height: 120px;
+    margin: 0 auto;
+    display: block;
+}
+
+nav {
+    margin-bottom: 30px;
+}
+
+article {
+    margin: 60px 10px 0 10px;
+    border-bottom: 1px dotted    black;
+}
+
+#mainContent {
+    background-color: rgba(254, 251, 251, 0.77);
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.page-footer a {
+    color: black;
+}
+
+.page-footer {
+    background-color: rgba(254, 251, 251, 0.77);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#logInButton {
+    margin-top:30px;
+}
+
+p span {
+    font-weight: bold;
 }

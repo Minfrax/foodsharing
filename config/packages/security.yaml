@@ -34,3 +34,4 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - {path: '^/logout$', roles: ROLE_USER}
+        - {path: '^/admConsole$', roles: ROLE_ADMIN}

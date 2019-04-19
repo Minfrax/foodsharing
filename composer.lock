@@ -5459,7 +5459,6 @@
         },
         {
             "name": "twig/twig",
-<<<<<<< HEAD
             "version": "v2.8.1",
             "source": {
                 "type": "git",
@@ -5470,6 +5469,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/twigphp/Twig/zipball/91cc2594d3143761ce0399c1caffd0b500ffe5b9",
                 "reference": "91cc2594d3143761ce0399c1caffd0b500ffe5b9",
+<<<<<<< HEAD
+=======
 =======
 <<<<<<< HEAD
             "version": "v2.8.1",
@@ -5495,6 +5496,7 @@
                 "reference": "26517b0e879865ee0d8a9748144be0875d838f5a",
 >>>>>>> 445f35f5e69dfc75b98c52260f77955780e320b8
 >>>>>>> ae42192317f53a67679cc2f8b46937bf149c20bd
+>>>>>>> feee54a845b2193678c64d9b8fa38a6c46e45828
                 "shasum": ""
             },
             "require": {
@@ -5548,8 +5550,9 @@
             "keywords": [
                 "templating"
             ],
-<<<<<<< HEAD
             "time": "2019-04-16T17:14:24+00:00"
+<<<<<<< HEAD
+=======
 =======
 <<<<<<< HEAD
             "time": "2019-04-16T17:14:24+00:00"
@@ -5557,6 +5560,7 @@
             "time": "2019-04-16T12:36:25+00:00"
 >>>>>>> 445f35f5e69dfc75b98c52260f77955780e320b8
 >>>>>>> ae42192317f53a67679cc2f8b46937bf149c20bd
+>>>>>>> feee54a845b2193678c64d9b8fa38a6c46e45828
         },
         {
             "name": "webmozart/assert",
