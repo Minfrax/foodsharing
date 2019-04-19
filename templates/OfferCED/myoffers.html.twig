@@ -3,7 +3,7 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Edit your offers</h1>
+    <h1>My Offers</h1>
     <section>
         {% for offer in offers %}
             <article>
@@ -13,11 +13,16 @@
                         <p class="content">{{ offer.getDescription() }}</p>
                         <p class="content"><span>Created at: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
                         <a href="offer/{{ offer.getId }}" class="content">View</a>
-                        <a href="EditOffer/del/{{ offer.getId }}">Delete</a></p>
+                        <a href="MyOffers/del/{{ offer.getId }}">Delete</a></p>
+                        <a href="MyOffers/EditOffer/{{ offer.getId }}">Edit</a>
                     </li>
 
                 </ul>
             </article>
         {% endfor %}
+
+
     </section>
+
+
 {% endblock %}

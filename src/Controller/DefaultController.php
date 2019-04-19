@@ -4,12 +4,14 @@ namespace App\Controller;
 
 
 use App\Repository\OfferRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class DefaultController
+class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
@@ -18,14 +20,15 @@ class DefaultController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function hompageAction(Environment $twig, Request $request, OfferRepository $repository)
+    public function hompageAction(Request $request, Environment $twig,  OfferRepository $repository, PaginatorInterface $paginator)
     {
         return new Response(
             $twig->render(
                 'Default/homepage.html.twig',
             [
-                'offers' => $repository->findAll(
-                    $request
+                'offers' => $repository->findPaginated(
+                    $request,
+                    $paginator
                 )
             ]
             )

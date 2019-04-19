@@ -4,6 +4,8 @@
 
 {% block body %}
     <h1>Food4Share</h1>
+
+
     <!-- FILTER OPTIONS START -->
     <section id="filterBar">
         <form action="">
@@ -43,4 +45,11 @@
         {% endfor %}
         </div>
     </section>
+    <DIV CLASS="count my-4">
+        {{ 'HOME.ITEM_COUNT' | trans }} : {{ offers.getTotalItemcount }}
+    </DIV>
+
+    <div class ="navigation">
+    {{ knp_pagination_render(offers) }}
+
 {% endblock %}
