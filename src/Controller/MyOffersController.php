@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Offer;
 use App\Entity\User;
 use App\Form\CreateOfferFormType;
+use App\Form\EditOfferFormType;
 use App\Repository\OfferRepository;
 use App\Repository\UserRepository;
 use Ramsey\Uuid\Uuid;
@@ -57,18 +58,21 @@ class MyOffersController extends AbstractController
 
 
     /**
-     * @Route("/MyOffers/EditOffer/{offer}", name="app_edit")
+     * @Route("/MyOffers/EditOffer/{id}", name="app_edit")
      */
     public function editOffer (
         Request $request,
         FormFactoryInterface $formFactory,
-        Environment $twig
+        Environment $twig,
+        $id
 
     )
     {
-        $offer = new Offer();
+        $offer= $this->getDoctrine()
+            ->getRepository(Offer::class)
+            ->find($id);
         $form = $formFactory->create(
-            CreateOfferFormType::class,
+            EditOfferFormType::class,
             $offer,
             ['standalone' => true]
         );
