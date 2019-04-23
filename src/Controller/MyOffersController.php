@@ -23,17 +23,15 @@ class MyOffersController extends AbstractController
      * @Route("/MyOffers", name="app_my_offers")
      */
     public function showEditDashboard(Environment $twig, Request $request, OfferRepository $repository, UserRepository $userRepository)
-
     {
 
-
+        $usr = $this->getUser();
         return new Response($twig->render('/myoffers.html.twig',
             [
-                'offers' => $repository->findAll(
-                    $request
-                ),
-                'users' => $userRepository->findAll(
-                    $request
+                'offers' => $repository->findBy(
+                    [
+                        'sharer_id' => $usr
+                    ]
                 )
             ]
         )
@@ -44,8 +42,23 @@ class MyOffersController extends AbstractController
     /**
      * @Route("/MyOffers/del/{id}", name="offer_del")
      */
+
     public function deleteUserOffer(Request $request, Environment $twig, OfferRepository $repository,$id)
     {
+        $usr = $this->getUser();
+        $offer= $this->getDoctrine()
+            ->getRepository(Offer::class)
+            ->find($id);
+
+        $sharer= $offer->getSharerId();
+
+
+        if($usr !== $sharer){
+        return new Response(
+            $this->redirectToRoute('homepage')
+        );}
+    else {
+
         $offer = $this->getDoctrine()->getManager();
 
         $post = $offer->getRepository('App:Offer')->find($id);
@@ -54,7 +67,7 @@ class MyOffersController extends AbstractController
         $offer->flush();
 
         return $this->redirectToRoute('app_my_offers');
-
+    }
     }
 
 
@@ -69,6 +82,9 @@ class MyOffersController extends AbstractController
 
     )
     {
+
+        $usr = $this->getUser();
+
         $offer= $this->getDoctrine()
             ->getRepository(Offer::class)
             ->find($id);
@@ -79,7 +95,14 @@ class MyOffersController extends AbstractController
         );
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $sharer = $offer->getSharerId();
+
+
+        if($usr !== $sharer){
+            return new Response(
+                $this->redirectToRoute('homepage')
+            );
+        } else if ($form->isSubmitted() && $form->isValid()) {
             // Title
 
             //$title = $form->get('title')->getData();
