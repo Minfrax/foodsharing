@@ -15,6 +15,12 @@
                 <h5 style="text-align:center; color:#5a3921;">Contact Details</h5>
                 <p><span>E-Mail Address: </span><a href="mailto:{{ offer.getSharerId().getEmail }}">{{ offer.getSharerId().getEmail() }}</a></p>
                 <p><span>Telephone Number: </span>{{ offer.getSharerId().getTelephone }}</p>
+                <a class="twitter-share-button"
+                   href="https://twitter.com/intent/tweet?text=Check%20out%20this%20offer%20#foodsharing">
+                    Tweet</a>
+                <a data-layout="standard" href="https://www.facebook.com/sharer/sharer.php?u=foodsharing.com/offer/{{ offer.getId() }}" target="_blank">
+                    Share on Facebook
+                </a>
             </article>
         {% endfor %}
         <a href="{{ path('homepage') }}" class="content"><button style="margin:10px 0 10px 10px;" type="button" class="btn btn-outline-info">Go back</button></a>
