@@ -1,57 +1,29 @@
 {% extends 'base.html.twig' %}
-{% block title %}View Offer{% endblock %}
+{% block title %}Offer Overview{% endblock %}
 
 {% block body %}
-    <h1>View Offer</h1>
-        <h3>Presentation JUST FOR TEST</h3>
-        <p>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto asperiores autem blanditiis
-        consequuntur doloremque eligendi facere illo illum incidunt ipsam iste itaque labore laborum magnam minima minus
-        modi natus nesciunt quaerat qui quidem, reiciendis repudiandae suscipit temporibus vero voluptas voluptates?
-        Aliquid architecto asperiores at beatae consequatur consequuntur dolor dolore dolorem dolorum eligendi eos
-        explicabo harum itaque iure laborum modi molestias natus non nulla numquam officia placeat quo saepe, sapiente
-        sed tempore velit voluptate. Ad aspernatur assumenda debitis deleniti deserunt dignissimos ducimus eos eveniet
-        harum illum iste laborum laudantium, libero maiores molestiae nostrum odit omnis pariatur perferendis,
-        perspiciatis quaerat quibusdam quod repudiandae similique sit tenetur ullam voluptates! Earum magnam, quia.
-        Error illum incidunt itaque? Ab adipisci, aliquam aperiam autem eaque eveniet facere illum ipsa itaque libero,
-        necessitatibus odit quasi, ratione sapiente sint vero voluptas. Aliquid autem consequatur doloremque eos id ipsa
-        libero mollitia nulla sit veritatis? Quod rem sapiente vel! Ab aliquam aliquid aspernatur atque beatae
-        blanditiis consequuntur cum dignissimos, distinctio dolore eligendi error eum excepturi expedita id, impedit
-        iste laudantium magnam magni maiores maxime minima placeat quaerat quidem quisquam ratione reiciendis
-        reprehenderit repudiandae rerum sapiente sunt tempora temporibus ullam velit veniam voluptatem voluptatum?
-        Aliquid aspernatur perferendis quo totam vel.
-        </p>
-
-        <table border="1" style="width: 100%;">
-            <thead>
-            <tr>
-                <td>active</td>
-                <td>id</td>
-                <td>sharer_id_id</td>
-                <td>canton_id_id</td>
-                <td>title</td>
-                <td>description</td>
-                <td>picture_path</td>
-                <td>created_at</td>
-                <td>expiration_date</td>
-                <td>mime_type</td>
-            </tr>
-            </thead>
-            <tbody>
-                {% for offer in offers %}
-                    <tr>
-                        <td>{{ offer.getActive() }}</td>
-                        <td>{{ offer.getId() }}</td>
-                        <td>{{ offer.getSharerId().getUsername }}</td>
-                        <td>{{ offer.getCantonId() }}</td>
-                        <td>{{ offer.getTitle() }}</td>
-                        <td>{{ offer.getDescription() }}</td>
-                        <img style="width:250px; height: 250px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
-                        <td>{{ offer.getPicturePath() }}</td>
-                        <td>{{ offer.getCreatedAt | date('Y-m-D') }}</td>
-                        <td>{{ offer.getMimeType() }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <section id="mainContent">
+        <h2>Overview</h2>
+        {% for offer in offers %}
+            <article>
+                <h3 style="text-align: center; margin-bottom:20px;">{{ offer.getTitle }}</h3>
+                <img style="width:410px; height: 360px; border: 1px solid black; display:block; border-radius:10px; margin: 0 auto 10px auto;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
+                <p style="overflow-wrap:break-word; text-align: center; margin-bottom:60px;">{{ offer.getDescription }}</p>
+                <p><span>From User: </span>{{ offer.getSharerId().getUsername() }}</p>
+                <p><span>In Canton: </span>{{ offer.getCantonId() }}</p>
+                <p style="border-bottom: 1px dotted black;"><span>Created At: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+                <h5 style="text-align:center; color:#5a3921;">Contact Details</h5>
+                <p><span>E-Mail Address: </span><a href="mailto:{{ offer.getSharerId().getEmail }}">{{ offer.getSharerId().getEmail() }}</a></p>
+                <p><span>Telephone Number: </span>{{ offer.getSharerId().getTelephone }}</p>
+                <a class="twitter-share-button"
+                   href="https://twitter.com/intent/tweet?text=Check%20out%20this%20offer%20#foodsharing">
+                    Tweet</a>
+                <a data-layout="standard" href="https://www.facebook.com/sharer/sharer.php?u=foodsharing.com/offer/{{ offer.getId() }}" target="_blank">
+                    Share on Facebook
+                </a>
+            </article>
+        {% endfor %}
+        <a href="{{ path('homepage') }}" class="content"><button style="margin:10px 0 10px 10px;" type="button" class="btn btn-outline-info">Go back</button></a>
+    </section>
 
 {% endblock %}

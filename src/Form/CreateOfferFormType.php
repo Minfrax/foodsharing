@@ -19,8 +19,17 @@ class CreateOfferFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, ['label' => 'FORM.OFFER.TITLE.LABEL'])
-            ->add('description', TextType::class, ['label' => 'FORM.OFFER.DESCRIPTION.LABEL'])
+            ->add('title', TextType::class, ['label' => 'FORM.OFFER.TITLE.LABEL',
+                'attr' => array(
+                    'placeholder' => 'Add the title of your offer'
+                )
+                ])
+            ->add('description', TextType::class, [
+                'label' => 'FORM.OFFER.DESCRIPTION.LABEL',
+                'attr' => array(
+                    'placeholder' => 'Here you can add some information about your food offer'
+                )
+            ])
             ->add('canton_id', EntityType::class,
                 [
                     'label' => 'FORM.OFFER.CANTON.LABEL',
