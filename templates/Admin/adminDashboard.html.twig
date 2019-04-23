@@ -13,6 +13,7 @@
                     <h5>{{ offer.getTitle() }}</h5>
                     <p><a href="offer/{{ offer.getId }}">View</a>
                     <a href="admConsole/del/{{ offer.getId }}">Delete</a></p>
+                    <a href="admConsole/EditOffer/{{ offer.getId }}">Edit</a>
                     <hr>
                 {% endfor %}
                 </div>
@@ -25,6 +26,8 @@
                     <p><span style="font-weight:bold;">Firstname: </span>{{ user.getFirstname() }}</p>
                     <p><span style="font-weight:bold;">Telephone: </span>{{ user.getTelephone() }}</p>
                     <a href="admConsole/delUser/{{ user.getId }}">Delete</a>
+
+
                     <hr>
                 {% endfor %}
                 </div>

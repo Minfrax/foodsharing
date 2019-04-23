@@ -5,8 +5,6 @@ namespace App\Controller;
 
 
 use App\Entity\Offer;
-use App\Entity\User;
-use App\Form\CreateOfferFormType;
 use App\Form\EditOfferFormType;
 use App\Repository\OfferRepository;
 use App\Repository\UserRepository;
@@ -25,7 +23,10 @@ class MyOffersController extends AbstractController
      * @Route("/MyOffers", name="app_my_offers")
      */
     public function showEditDashboard(Environment $twig, Request $request, OfferRepository $repository, UserRepository $userRepository)
+
     {
+
+
         return new Response($twig->render('/myoffers.html.twig',
             [
                 'offers' => $repository->findAll(
