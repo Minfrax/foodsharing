@@ -43,8 +43,22 @@ class MyOffersController extends AbstractController
     /**
      * @Route("/MyOffers/del/{id}", name="offer_del")
      */
+
     public function deleteUserOffer(Request $request, Environment $twig, OfferRepository $repository,$id)
     {
+        $usr = $this->getUser();
+        $offer= $this->getDoctrine()
+            ->getRepository(Offer::class)
+            ->find($id);
+
+        $sharer= $offer->getSharerId();
+
+
+        if($usr !== $sharer){
+        return new Response(
+            $this->redirectToRoute('homepage')
+        );}
+    else {
         $offer = $this->getDoctrine()->getManager();
 
         $post = $offer->getRepository('App:Offer')->find($id);
@@ -53,7 +67,7 @@ class MyOffersController extends AbstractController
         $offer->flush();
 
         return $this->redirectToRoute('app_my_offers');
-
+    }
     }
 
 

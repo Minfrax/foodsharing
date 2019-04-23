@@ -75,7 +75,7 @@ nav {
 
 article {
     margin: 60px 0px 0 0px;
-    border-bottom: 1px dotted    black;
+    border-bottom: 0.5px dashed black;
 }
 .about-team, .info-video {
     border-bottom: 0;

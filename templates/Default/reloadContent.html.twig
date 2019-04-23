@@ -1,9 +1,9 @@
 {% block body %}
 {% for offer in offers | reverse %}
-<article class="col-md-5">
-    <h3>{{ offer.getTitle() }}</h3>
-    <a href="offer/{{ offer.getId }}"><img style="margin-bottom: 10px; width:250px; height: 190px; border: 1px solid black; border-radius:10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt=""></a>
-    <p class="text-truncate">{{ offer.getDescription() }}</p>
+<article class="col-md-6" style="text-align: center;">
+    <h3 style="text-align: center; margin-bottom:30px;">{{ offer.getTitle() }}</h3>
+    <a href="offer/{{ offer.getId }}"><img style="margin: 0 auto 10px auto; display:block; width:310px; height: 260px; border: 1px solid #5a3921; border-radius:10px;"" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt=""></a>
+    <p class="text-truncate" style="margin-bottom:60px; text-align: center;">{{ offer.getDescription() }}</p>
     <p class="content"><span style="font-weight: bold;">Canton: </span>{{ offer.getCantonId().getCantonname }}</p>
     <p><span style="font-weight: bold;">Created at: </span>{{ offer.createdAt() | date('Y-m-d') }}</p>
     <p><span style="font-weight: bold;">Offered by: </span>{{ offer.getSharerId().getUsername() }}</p>
