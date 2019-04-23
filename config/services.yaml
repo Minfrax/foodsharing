@@ -4,12 +4,12 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
-    register_mail_subject:          'Activate your account'
-    register_mail_sender:           'noreply-fitforfood4share@gmail.com'
-    register_mail_txt_template:     'UserRegister/registrationEmail.txt.twig'
-    register_mail_html_template:    'UserRegister/registrationEmailUser.html.twig'
-    upload_directory:               '%kernel.root_dir%/../var/uploads/'
+    locale:                             'en'
+    register_mail_subject:              'Activate your account'
+    register_mail_sender:               'noreply-fitforfood4share@gmail.com'
+    register_mail_txt_template:         'UserRegister/registrationEmail.txt.twig'
+    register_mail_html_template:        'UserRegister/registrationEmailUser.html.twig'
+    upload_directory:                   '%kernel.root_dir%/../var/uploads/'
 
 services:
     # default configuration for services in *this* file

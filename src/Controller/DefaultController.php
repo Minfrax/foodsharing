@@ -32,7 +32,6 @@ class DefaultController
         );
     }
 
-
     /**
      * @param Environment $twig
      * @return Response
@@ -46,46 +45,6 @@ class DefaultController
             )
         );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function filterAction(Request $request, Environment $twig, OfferRepository $repository)
     {

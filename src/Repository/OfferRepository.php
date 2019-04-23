@@ -30,7 +30,23 @@ class OfferRepository extends ServiceEntityRepository
             10
         );
     }
-
+    /**
+     * @param string|null $term
+     */
+    public function getWithSearchQueryBuilder(?string $term): QueryBuilder
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->innerJoin('c.article', 'a')
+            ->addSelect('a');
+        if ($term) {
+            $qb->andWhere('c.content LIKE :term OR c.authorName LIKE :term OR a.title LIKE :term')
+                ->setParameter('term', '%' . $term . '%')
+            ;
+        }
+        return $qb
+            ->orderBy('c.createdAt', 'DESC')
+            ;
+    }
     // /**
     //  * @return Offer[] Returns an array of Offer objects
     //  */
