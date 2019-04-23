@@ -34,15 +34,30 @@ class DefaultController
 
 
     /**
-     * @param Environment $twig
-     * @return Response
-     * @Route("/tos", name="terms")
-     */
+ * @param Environment $twig
+ * @return Response
+ * @Route("/tos", name="terms")
+ */
     public function termOfService(Environment $twig)
     {
         return new Response(
             $twig->render(
                 'Terms/terms.html.twig'
+            )
+        );
+    }
+
+
+    /**
+     * @param Environment $twig
+     * @return Response
+     * @Route("/about", name="app_about")
+     */
+    public function aboutUs(Environment $twig)
+    {
+        return new Response(
+            $twig->render(
+                'subPages/about.html.twig'
             )
         );
     }

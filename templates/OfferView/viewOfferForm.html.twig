@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
-{% block title %}View Offer{% endblock %}
+{% block title %}Offer Overview{% endblock %}
 
 {% block body %}
     <section id="mainContent">
         <h2>Overview</h2>
         {% for offer in offers %}
             <article>
-                <h3>{{ offer.getTitle }}</h3>
-                <img style="width:390px; height: 340px; border: 1px solid black; border-radius:10px; margin-bottom: 10px;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
-                <p style="overflow-wrap:break-word">{{ offer.getDescription }}</p>
+                <h3 style="text-align: center; margin-bottom:20px;">{{ offer.getTitle }}</h3>
+                <img style="width:410px; height: 360px; border: 1px solid black; display:block; border-radius:10px; margin: 0 auto 10px auto;" src="{{ path('get_picture_content', {'picture': offer.getId()}) }}" alt="">
+                <p style="overflow-wrap:break-word; text-align: center; margin-bottom:60px;">{{ offer.getDescription }}</p>
                 <p><span>From User: </span>{{ offer.getSharerId().getUsername() }}</p>
                 <p><span>In Canton: </span>{{ offer.getCantonId() }}</p>
                 <p style="border-bottom: 1px dotted black;"><span>Created At: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
