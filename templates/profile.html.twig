@@ -1,0 +1,49 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    <h1>Profile</h1>
+<section id="mainContent">
+    <div class="container">
+
+                <div class="col-6">
+
+                    <h5>{{ app.user.getUsername() }}</h5>
+                    <p><span style="font-weight:bold;">E-Mail: </span>{{ app.user.getEmail() }}</p>
+                    <p><span style="font-weight:bold;">Lastname: </span>{{ app.user.getLastname() }}</p>
+                    <p><span style="font-weight:bold;">Firstname: </span>{{ app.user.getFirstname() }}</p>
+                    <p><span style="font-weight:bold;">Telephone: </span>{{ app.user.getTelephone() }}</p>
+                    <a href="profile/edit/{{ app.user.getId }}">Edit</a>
+                </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
