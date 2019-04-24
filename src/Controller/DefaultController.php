@@ -33,10 +33,10 @@ class DefaultController
     }
 
     /**
- * @param Environment $twig
- * @return Response
- * @Route("/tos", name="terms")
- */
+     * @param Environment $twig
+     * @return Response
+     * @Route("/tos", name="terms")
+     */
     public function termOfService(Environment $twig)
     {
         return new Response(
@@ -57,6 +57,20 @@ class DefaultController
         return new Response(
             $twig->render(
                 'subPages/about.html.twig'
+            )
+        );
+    }
+
+    /**
+     * @param Environment $twig
+     * @return Response
+     * @Route("/impressum", name="impressum")
+     */
+    public function impressum(Environment $twig)
+    {
+        return new Response(
+            $twig->render(
+                'Impressum/impressum.html.twig'
             )
         );
     }

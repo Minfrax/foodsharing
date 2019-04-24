@@ -1,3 +1,8 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+</head>
+
 <!-- Footer -->
 <footer class="page-footer font-small stylish-color-dark pt-4">
 
@@ -39,16 +44,24 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Facebook</a>
+                        <i class="fab fa-facebook-f">
+                            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                        </i>
                     </li>
                     <li>
-                        <a href="#!">Instagram</a>
+                        <i class="fab fa-instagram">
+                            <a href="http://www.instagram.com" target="_blank">Instagram</a>
+                        </i>
                     </li>
                     <li>
-                        <a href="#!">LinkedIn</a>
+                        <i class="fab fa-linkedin-in">
+                            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                        </i>
                     </li>
                     <li>
-                        <a href="#!">Twitter</a>
+                        <i class="fab fa-twitter">
+                            <a href="https://twitter.com/" target="_blank">Twitter</a>
+                        </i>
                     </li>
                 </ul>
 
@@ -65,20 +78,28 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Support</a>
+                        <i class="fas fa-headset">
+                            <a href="https://www.numericall.fr/" target="_blank">Support</a>
+                        </i>
                     </li>
                     <li>
-                        <a href="#!">Mail</a>
+                        <i class="fas fa-paper-plane">
+                            <a href="mailto:webmaster@example.com?subject=Feedback from visitor&body=Hi,I found your website and love it">Mail</a>
+                        </i>
                     </li>
                     <li>
-                        <a href="#!">Adress</a>
+                        <address>
+                            Dream team<br>
+                            7, Technoport
+                            LUXEMBOURG
+                        </address>
                     </li>
                     <li>
-                        <a href="#!">P.O Box</a>
+                        <i class="fas fa-map-marked-alt">
+                            <a href="http://www.technoport.lu/online/www/function/accessmap/54/contentContainer/236/4365/ENG/AccessMapEsch2016_visitors.pdf" target="_blank">Acess Map</a>
+                        </i>
                     </li>
-
                 </ul>
-
             </div>
             <!-- Grid column -->
 
@@ -95,13 +116,10 @@
                         <a href="{{ path ('terms') }}">Terms</a>
                     </li>
                     <li>
-                        <a href="#!">Legal disclosure</a>
+                        <a href="{{ path ('impressum') }}">Impressum</a>
                     </li>
                     <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
+                        <a href="{{ path ('app_about') }}">About</a>
                     </li>
                 </ul>
 
@@ -118,7 +136,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="#">Food4Share Team JYAD</a>
+        <a href="{{ path ('terms') }}">Food4Share Team JYAD</a>
     </div>
     <!-- Copyright -->
 
