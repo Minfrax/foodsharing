@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container" id="mainContent">
+    <h2 style="margin-bottom: 60px;">Oops! An Error Occurred</h2>
+    <h3 style="text-align: center; margin-bottom:30px;">The server returned a "{{ status_code }} {{ status_text }}".</h3>
+
+    <p><img src="https://thumbs.gfycat.com/InferiorAnxiousAustralianfreshwatercrocodile-size_restricted.gif" alt="Error Gif" style="margin: 0 auto; display: block;"></p>
+    <p>
+        Something is broken. Please let us know what you were doing when this error occurred.
+        We will fix it as soon as possible. Sorry for any inconvenience caused.
+    </p>
+    <p>Go back to our <a href="{{ path('homepage') }}">Homepage</a></p>
+</div>
+{% endblock %}
+
