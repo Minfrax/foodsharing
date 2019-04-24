@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType; // later for canton entity add
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +25,7 @@ class CreateOfferFormType extends AbstractType
                     'placeholder' => 'Add the title of your offer'
                 )
                 ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'FORM.OFFER.DESCRIPTION.LABEL',
                 'attr' => array(
                     'placeholder' => 'Here you can add some information about your food offer'
@@ -42,8 +43,8 @@ class CreateOfferFormType extends AbstractType
                'constraints' => [new Image([
                    'mimeTypes' => ['image/png', 'image/jpeg'],
                    'maxSize' => '5M',
-                   'minWidth' => 640,
-                   'minHeight' => 640
+                   'minWidth' => 200,
+                   'minHeight' => 200
                 ])]
                 ]
             );

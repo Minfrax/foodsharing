@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}admin All{% endblock %}
+{% block title %}Admin Panel{% endblock %}
 
 {% block body %}
     <h1>Administrate All</h1>
@@ -9,11 +9,11 @@
             <div class="row">
                 <div class="col-6">
                     <h2>Offer Overview</h2>
-                {% for offer in offers %}
+                {% for offer in offers | reverse %}
                     <h5>{{ offer.getTitle() }}</h5>
-                    <p><a href="offer/{{ offer.getId }}">View</a>
-                    <a href="admConsole/del/{{ offer.getId }}">Delete</a></p>
-                    <a href="admConsole/EditOffer/{{ offer.getId }}">Edit</a>
+                    <p><a href="offer/{{ offer.getId }}"><button type="button" class="btn btn-outline-primary">View</button></a>
+                    <a href="admConsole/del/{{ offer.getId }}"><button type="button" class="btn btn-outline-danger">Delete</button></a></p>
+                    <a href="admConsole/EditOffer/{{ offer.getId }}"><button type="button" class="btn btn-outline-dark">Edit</button></a>
                     <hr>
                 {% endfor %}
                 </div>
@@ -25,7 +25,7 @@
                     <p><span style="font-weight:bold;">Lastname: </span>{{ user.getLastname() }}</p>
                     <p><span style="font-weight:bold;">Firstname: </span>{{ user.getFirstname() }}</p>
                     <p><span style="font-weight:bold;">Telephone: </span>{{ user.getTelephone() }}</p>
-                    <a href="admConsole/delUser/{{ user.getId }}">Delete</a>
+                    <a href="admConsole/delUser/{{ user.getId }}"><button type="button" class="btn btn-danger">Delete</button></a>
 
 
                     <hr>

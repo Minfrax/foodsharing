@@ -73,9 +73,11 @@
                     <li>
                         <a href="#!">Adress</a>
                     </li>
-                    <li>
-                        <a href="#!">P.O Box</a>
-                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('app_adm') }}">Admin</a>
+                        </li>
+                    {% endif %}
 
                 </ul>
 
