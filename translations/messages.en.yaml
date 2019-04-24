@@ -46,7 +46,7 @@ FORM:
 MAIL:
     REGISTER:
         TITLE:          'Activate your account'
-        INFO:           'Hi %name%, your account was successfully created on food4share, just one more step to activate !!'
+        INFO:           'Hello %name%, your account was successfully created on food4share, just one more step to activate !!'
         HTML:
             LINK:
                 INFO:   'Please click'
@@ -57,7 +57,7 @@ MAIL:
 REGISTRATION:
     ACTIVATION:
         TITLE:          'food4share - Activation needed'
-        INFO:           'Your account was created, please check your email account to activate ❤️'
+        INFO:           'Hello %name%, your account was created, please check your email account to activate ❤️'
 
 OFFERVIEW:
     OFFER:

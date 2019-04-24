@@ -53,12 +53,12 @@ class PasswordController extends AbstractController
 
             if ($user) {
                 $user->setActiveToken(Uuid::uuid4());
+                $mailer->sendMail($user);
 
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($user);
                 $entityManager->flush();
 
-                $mailer->sendMail($user);
 
                 return new Response($twig->render('PasswordRecovery/emailPasswordRestoreSent.html.twig', [
                     "user" => $user

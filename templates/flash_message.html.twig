@@ -1,0 +1,11 @@
+{% block flash_messages %}
+    {# read and display all flash messages #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {# classes are here https://getbootstrap.com/docs/4.0/components/alerts/#}
+            <div class="text-center alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
