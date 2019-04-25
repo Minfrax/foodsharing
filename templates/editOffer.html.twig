@@ -7,6 +7,16 @@
         <h2>Edit Offer</h2>
         {{ form(EditOfferForm) }}
     </section>
+
+    <script>
+        document.getElementById("edit_offer_form_file")
+            .addEventListener(
+                'change',
+                function(){
+                    document.querySelector("#edit_offer_form_file + label").innerText = document.getElementById("edit_offer_form_file").value;
+                }
+            )
+    </script>
 {% endblock %}
 
 
