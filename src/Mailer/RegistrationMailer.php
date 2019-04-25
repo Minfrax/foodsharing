@@ -39,6 +39,7 @@ class RegistrationMailer
         $message->setSubject($this->subject);
         $message->setFrom($this->sender);
         $message->setTo($user->getEmail());
+        $message->setContentType('text/html');
         $message->setBody($this->twig->render($this->htmlTemplate, ['user' => $user]), 'text/html');
         $message->addPart($this->twig->render($this->txtTemplate, ['user' => $user]), 'text/plain');
         $this->mailer->send($message);

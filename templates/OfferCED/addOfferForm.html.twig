@@ -7,4 +7,14 @@
         <h2>Add an offer</h2>
         {{ form(CreateOfferForm) }}
     </section>
+
+    <script>
+        document.getElementById("create_offer_form_file")
+            .addEventListener(
+                'change',
+                function(){
+                    document.querySelector("#create_offer_form_file + label").innerText = document.getElementById("create_offer_form_file").value;
+                }
+            )
+    </script>
 {% endblock %}

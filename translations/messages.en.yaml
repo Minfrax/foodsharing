@@ -46,7 +46,8 @@ FORM:
 MAIL:
     REGISTER:
         TITLE:          'Activate your account'
-        INFO:           'Hello %name%, your account was successfully created on food4share, just one more step to activate !!'
+        INFO:           'Hello %name%,
+                        your account was successfully created on food4share, just one more step to activate !!'
         HTML:
             LINK:
                 INFO:   'Please click'
@@ -54,10 +55,21 @@ MAIL:
         TXT:
             LINK:
                 INFO:   'Please copy past this link in your browser :'
+    RESTORE:
+        TITLE:          'Recover your password'
+        INFO:           'Hello %name%,
+                        we receive a request to recover your password. If it was not requested, you can ignore this email.
+                        But then we recommend that you change either your email address or the password of your email account for security reason.'
+        HTML:
+            LINK:
+                INFO:   'Please click'
+                LABEL:  'on this link'
+
 REGISTRATION:
     ACTIVATION:
         TITLE:          'food4share - Activation needed'
-        INFO:           'Hello %name%, your account was created, please check your email account to activate ❤️'
+        INFO:           'Hello %name%,
+                        your account was created, please check your email account to activate ❤️'
 
 OFFERVIEW:
     OFFER:
