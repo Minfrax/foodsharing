@@ -95,6 +95,11 @@
                     <li>
                         <a href="{{ path ('app_about') }}">About Us</a>
                     </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="{{ path ('app_adm') }}">Adminpanel</a>
+                    </li>
+                    {% endif %}
                 </ul>
 
             </div>
@@ -110,7 +115,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="{{ path ('terms') }}">Food4Share Team FeedTheWorld</a>
+        <a href="{{ path ('app_about') }}">Food4Share Team FeedTheWorld</a>
     </div>
     <!-- Copyright -->
 
