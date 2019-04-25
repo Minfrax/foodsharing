@@ -37,4 +37,5 @@ security:
         - {path: '^/admConsole$', roles: ROLE_ADMIN}
         - {path: '^/create$', roles: ROLE_USER}
         - {path: '^/profile$', roles: ROLE_USER}
+        - {path: '^/MyOffers$', roles: ROLE_USER}
 
