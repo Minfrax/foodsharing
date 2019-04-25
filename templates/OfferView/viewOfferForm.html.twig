@@ -12,6 +12,10 @@
                 <p><span>From User: </span>{{ offer.getSharerId().getUsername() }}</p>
                 <p><span>In Canton: </span>{{ offer.getCantonId() }}</p>
                 <p style="border-bottom: 1px dotted black;"><span>Created At: </span>{{ offer.getCreatedAt | date('Y-m-d') }}</p>
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Canton+{{ offer.getCantonId().getCantonName() }}&zoom=11&size=600x300&maptype=roadmap
+                &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+                &markers=color:red%7Clabel:C%7C40.718217,-73.998284
+                &key=AIzaSyAgosvGeOU4ji2-30ctpCBdHAJSKkafiBc" style="display:block; margin: 20px auto 20px;" alt="">
                 <h5 style="text-align:center; color:#5a3921;">Contact Details</h5>
                 <p><span>E-Mail Address: </span><a href="mailto:{{ offer.getSharerId().getEmail }}">{{ offer.getSharerId().getEmail() }}</a></p>
                 <p><span>Telephone Number: </span>{{ offer.getSharerId().getTelephone }}</p>
