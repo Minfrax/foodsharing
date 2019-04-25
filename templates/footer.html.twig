@@ -1,7 +1,4 @@
-<head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
-</head>
+
 
 <!-- Footer -->
 <footer class="page-footer font-small stylish-color-dark pt-4">
@@ -17,7 +14,7 @@
 
                 <!-- Content -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Food4Share</h5>
-                <p>Your plateform to share your leftover food, help us to fight food waste! Contribute to save our planet and reduce your ecological footprint! </p>
+                <p>Your platform to share your leftover food, help us to fight food waste! Contribute to save our planet and reduce your ecological footprint! </p>
                 <!-- Call to action -->
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 {% else %}
@@ -78,13 +75,8 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <i class="fas fa-headset">
-                            <a href="https://www.numericall.fr/" target="_blank">Support</a>
-                        </i>
-                    </li>
-                    <li>
                         <i class="fas fa-paper-plane">
-                            <a href="mailto:webmaster@example.com?subject=Feedback from visitor&body=Hi,I found your website and love it">Mail</a>
+                            <a href="mailto:fit4food4share@gmail.com?subject=Food4Share Feedback">Mail</a>
                         </i>
                     </li>
                     <li>
@@ -93,11 +85,6 @@
                             7, Technoport
                             LUXEMBOURG
                         </address>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marked-alt">
-                            <a href="http://www.technoport.lu/online/www/function/accessmap/54/contentContainer/236/4365/ENG/AccessMapEsch2016_visitors.pdf" target="_blank">Acess Map</a>
-                        </i>
                     </li>
                 </ul>
             </div>
@@ -116,10 +103,7 @@
                         <a href="{{ path ('terms') }}">Terms</a>
                     </li>
                     <li>
-                        <a href="{{ path ('impressum') }}">Impressum</a>
-                    </li>
-                    <li>
-                        <a href="{{ path ('app_about') }}">About</a>
+                        <a href="{{ path ('app_about') }}">About Us</a>
                     </li>
                 </ul>
 
@@ -136,7 +120,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="{{ path ('terms') }}">Food4Share Team JYAD</a>
+        <a href="{{ path ('terms') }}">Food4Share Team FeedTheWorld</a>
     </div>
     <!-- Copyright -->
 
